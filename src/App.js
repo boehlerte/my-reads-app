@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
-import BookShelf from './components/BookShelf';
+import BookShelf from './BookShelf';
 
 class App extends Component {
   state = {

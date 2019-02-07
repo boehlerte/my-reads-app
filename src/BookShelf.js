@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import Book from './Book';
 
 export default class BookShelf extends Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="bookshelf">
                     {this.props.books.map(book => (
-                        <span className="book" key={book.id}>
-                            <img src={book.imageLinks.thumbnail} alt={book.title}/>
-                        </span>
+                        <Book key={book.id} book={book}/>
                     ))}
                 </div>
             </div>
