@@ -3,7 +3,9 @@ import * as BooksAPI from './BooksAPI';
 
 export default class Book extends Component {
     changeShelf = (event, book) => {
-        BooksAPI.update(book, event.target.value)
+        const shelf = event.target.value;
+
+        BooksAPI.update(book, shelf)
             .then(res => {
                 this.props.onShelfChange();
             })
