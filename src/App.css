@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.book-dropdown {
+.book-status-dropdown {
   position: absolute;
   bottom: -5%;
   right: -5%;
@@ -20,7 +20,7 @@
   background-image: url('./icons/arrow-drop-down.svg');
 }
 
-.book-dropdown select {
+.book-status-dropdown select {
   padding: 5px 8px;
   width: 130%;
   height: inherit;
@@ -32,10 +32,10 @@
   -webkit-appearance: none;
 }
 
-.book-dropdown select:focus {
+.book-status-dropdown select:focus {
   outline: none;
 }
 
-.book-dropdown select:hover {
+.book-status-dropdown select:hover {
   cursor: pointer;
 }

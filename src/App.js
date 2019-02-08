@@ -9,12 +9,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.refreshBooks();
+  }
+
+  refreshBooks = () => {
     BooksAPI.getAll()
       .then((books) => {
         this.setState(() => ({
           books
         }))
-        console.log(books);
       })
   }
 
@@ -32,15 +35,15 @@ class App extends Component {
         <div className="my-reads-body">
           <div className="bookshelf bookshelf--currently-reading">
             <h4>Currently Reading</h4>
-            <BookShelf books={currentlyReading}/>
+            <BookShelf books={currentlyReading} refreshBooks={this.refreshBooks}/>
           </div>
           <div className="bookshelf bookshelf--want-to-read">
             <h4>Want To Read</h4>
-            <BookShelf books={wantToRead}/>
+            <BookShelf books={wantToRead} refreshBooks={this.refreshBooks}/>
           </div>
           <div className="bookshelf bookshelf--read">
             <h4>Read</h4>
-            <BookShelf books={read}/>
+            <BookShelf books={read} refreshBooks={this.refreshBooks}/>
           </div>
         </div>
       </div>
