@@ -18,7 +18,7 @@ export default class Book extends Component {
                 <div className="book-image">
                     <img src={book.imageLinks.thumbnail} alt={book.name} />
                 </div>
-                <div className="book-status-dropdown">
+                <div className="book-status-dropdown circle-icon">
                     <select value={book.shelf} onChange={(event) => this.changeShelf(event, book)}>
                         <option disabled>Move to...</option>
                         <option value="currentlyReading">Currently Reading</option>

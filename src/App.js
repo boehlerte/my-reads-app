@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
 import BookShelf from './BookShelf';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -33,18 +34,32 @@ class App extends Component {
           <h2>My Reads</h2>
         </header>
         <div className="my-reads-body">
-          <div className="bookshelf bookshelf--currently-reading">
-            <h4>Currently Reading</h4>
-            <BookShelf books={currentlyReading} refreshBooks={this.refreshBooks}/>
-          </div>
-          <div className="bookshelf bookshelf--want-to-read">
-            <h4>Want To Read</h4>
-            <BookShelf books={wantToRead} refreshBooks={this.refreshBooks}/>
-          </div>
-          <div className="bookshelf bookshelf--read">
-            <h4>Read</h4>
-            <BookShelf books={read} refreshBooks={this.refreshBooks}/>
-          </div>
+          <Route exact path='/' render={() => (
+            <div className="bookcase">
+              <div className="bookshelf bookshelf--currently-reading">
+                <h4>Currently Reading</h4>
+                <BookShelf books={currentlyReading} refreshBooks={this.refreshBooks}/>
+              </div>
+              <div className="bookshelf bookshelf--want-to-read">
+                <h4>Want To Read</h4>
+                <BookShelf books={wantToRead} refreshBooks={this.refreshBooks}/>
+              </div>
+              <div className="bookshelf bookshelf--read">
+                <h4>Read</h4>
+                <BookShelf books={read} refreshBooks={this.refreshBooks}/>
+              </div>
+              <Link 
+                to='/search'
+                className='search-books circle-icon'
+              ></Link>
+            </div>
+          )} />
+
+          <Route path='/search' render={() => (
+            <div>
+              Search Page
+            </div>
+          )} />
         </div>
       </div>
     );

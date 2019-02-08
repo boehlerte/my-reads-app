@@ -13,10 +13,6 @@
   position: absolute;
   bottom: -5%;
   right: -5%;
-  height: 2.5em;
-  width: 2.5em;
-  border-radius: 100%;
-  background-color: green;
   background-image: url('./icons/arrow-drop-down.svg');
 }
 
@@ -38,4 +34,18 @@
 
 .book-status-dropdown select:hover {
   cursor: pointer;
+}
+
+.search-books {
+  background-image: url('./icons/add.svg');
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
+
+.circle-icon {
+  height: 2.5em;
+  width: 2.5em;
+  background-color: green;
+  border-radius: 100%;
 }
