@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
+import PropTypes from 'prop-types';
 
 export default class Book extends Component {
+    static propTypes = {
+        book: PropTypes.object.isRequired
+    }
+
     changeShelf = (event, book) => {
         const shelf = event.target.value;
 
@@ -14,18 +19,26 @@ export default class Book extends Component {
     render() {
         const { book } = this.props;
         return (
-            <div className="book">
-                <div className="book-image">
-                    <img src={book.imageLinks.thumbnail} alt={book.name} />
+            <div className='book-container'>
+                <div className='book'>
+                    <div className='book-image'>
+                        <img src={book.imageLinks.thumbnail} alt={book.name} />
+                    </div>
+                    <div className='book-status-dropdown circle-icon'>
+                        <select value={book.shelf} onChange={(event) => this.changeShelf(event, book)}>
+                            <option disabled>Move to...</option>
+                            <option value='currentlyReading'>Currently Reading</option>
+                            <option value='wantToRead'>Want to Read</option>
+                            <option value='read'>Read</option>
+                            <option value='none'>None</option>
+                        </select>
+                    </div>
                 </div>
-                <div className="book-status-dropdown circle-icon">
-                    <select value={book.shelf} onChange={(event) => this.changeShelf(event, book)}>
-                        <option disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
-                    </select>
+                <div className='book-info'>
+                    <div className='book-title'>{book.title}</div>
+                    {book.authors && book.authors.map((author) => 
+                        <div className='book-author' key={author}>{author}</div>
+                    )}
                 </div>
             </div>
         )
