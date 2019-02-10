@@ -1,11 +1,21 @@
+.my-reads-header {
+  text-align: center;
+  font-size: 1.5em;
+  border-bottom: 1px solid grey;
+}
+
 .bookshelf {
   text-align: center;
-  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.book-container {
+  display: inline-block;
+  margin: 1em;
 }
 
 .book {
   margin: 1em;
-  display: inline-block;
   position: relative;
 }
 
@@ -36,7 +46,7 @@
   cursor: pointer;
 }
 
-.search-books {
+.add-book-icon {
   background-image: url('./icons/add.svg');
   position: fixed;
   right: 5%;
@@ -48,4 +58,31 @@
   width: 2.5em;
   background-color: green;
   border-radius: 100%;
+}
+
+.book-info {
+  max-width: 7.5em;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.book-title {
+  font-size: .8em;
+}
+
+.book-author {
+  font-size: .7em;
+  font-weight: 300;
+  color: grey;
+}
+
+.search-bar {
+  padding-bottom: 1em;
+  border-bottom: 1px solid grey;
+}
+
+.back-arrow {
+  margin: 1em 0 0 1em;
+  height: 2.5em;
+  width: 2.5em;
 }
