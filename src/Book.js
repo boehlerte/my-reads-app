@@ -3,23 +3,46 @@ import * as BooksAPI from './BooksAPI';
 import PropTypes from 'prop-types';
 
 export default class Book extends Component {
+    _isMounted = false;
+
     static propTypes = {
         book: PropTypes.object.isRequired,
         onShelfChange: PropTypes.func.isRequired
     }
 
-    changeShelf = (event, book) => {
-        const shelf = event.target.value;
+    state = {
+        currentShelf: 'none'
+    }
 
-        BooksAPI.update(book, shelf)
-            .then(res => {
-                this.props.onShelfChange();
+    changeShelf = (book, shelf) => {
+        if (this._isMounted) {
+            BooksAPI.update(book, shelf)
+                .then(res => {
+                    this.setState({
+                        currentShelf: shelf
+                    })
+                    this.props.onShelfChange();
+                })
+        }
+    }
+
+    componentDidMount = () => {
+        this._isMounted = true;
+        BooksAPI.get(this.props.book.id) 
+            .then(book => {
+                this.setState({
+                    currentShelf: book.shelf || 'none'
+                })
             })
     }
 
+    componentWillUnmount = () => {
+        this._isMounted = false;
+    }
+
     render() {
+        const { currentShelf } = this.state;
         const { book } = this.props;
-        const shelf = book.shelf || 'none';
 
         return (
             <div className='book-container'>
@@ -29,7 +52,7 @@ export default class Book extends Component {
                         {!book.imageLinks && <div className='missing-thumbnail'>No Image</div>}
                     </div>
                     <div className='book-status-dropdown circle-icon'>
-                        <select value={shelf} onChange={(event) => this.changeShelf(event, book)}>
+                        <select value={currentShelf} onChange={(event) => this.changeShelf(book, event.target.value)}>
                             <option disabled>Move to...</option>
                             <option value='currentlyReading'>Currently Reading</option>
                             <option value='wantToRead'>Want to Read</option>

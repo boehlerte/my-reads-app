@@ -58,7 +58,7 @@ class App extends Component {
           )} />
 
           <Route path='/search' render={() => (
-            <SearchPage  refreshBooks={this.refreshBooks}/>
+            <SearchPage shelvedBooks={books} refreshBooks={this.refreshBooks}/>
           )} />
         </div>
       </div>
