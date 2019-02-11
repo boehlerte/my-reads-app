@@ -1,8 +1,8 @@
 ## My Reads App - developed in React.js
 
--search for books to add to your bookshelf
--add/remove books from a specific shelf (currently reading, want to read, read, none)
--view books on bookshelf
+<li>search for books to add to your bookshelf</li>
+<li>add/remove books from a specific shelf (currently reading, want to read, read, none)</li>
+<li>view books on bookshelf</li>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
