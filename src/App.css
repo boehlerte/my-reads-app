@@ -86,3 +86,11 @@
   height: 2.5em;
   width: 2.5em;
 }
+
+.missing-thumbnail {
+  height: 12em;
+  width: 8em;
+  border: 1px solid grey;
+  text-align: center;
+  padding: 4em 2em;
+}

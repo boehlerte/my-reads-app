@@ -25,7 +25,8 @@ export default class Book extends Component {
             <div className='book-container'>
                 <div className='book'>
                     <div className='book-image'>
-                        <img src={book.imageLinks.thumbnail} alt={book.name} />
+                        {book.imageLinks && <img src={book.imageLinks.thumbnail} alt={book.name} />}
+                        {!book.imageLinks && <div className='missing-thumbnail'>No Image</div>}
                     </div>
                     <div className='book-status-dropdown circle-icon'>
                         <select value={shelf} onChange={(event) => this.changeShelf(event, book)}>
