@@ -58,7 +58,7 @@ class App extends Component {
           )} />
 
           <Route path='/search' render={() => (
-            <SearchPage />
+            <SearchPage  refreshBooks={this.refreshBooks}/>
           )} />
         </div>
       </div>

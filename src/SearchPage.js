@@ -14,17 +14,27 @@ export default class SearchPage extends Component {
         this.setState({
             searchQuery: query
         })
-        BooksAPI.search(query)
+        if (query) {
+            BooksAPI.search(query)
             .then(books => {
                 this.setState({
                     booksReturned: books
                 })
-                console.log(this.state.booksReturned)
+                console.log(this.state.booksReturned);
             })
+            .catch(error => {
+                console.log('no books matching that search query')
+            })
+        } else {
+            this.setState({
+                booksReturned: []
+            })
+        }
     }
 
     render() {
         const { searchQuery, booksReturned } = this.state;
+        const { refreshBooks } = this.props;
 
         return (
             <div className='search-page'>
@@ -41,7 +51,12 @@ export default class SearchPage extends Component {
                     />
                 </div>
                 <div className='search-results'>
-                    {booksReturned.length > 0 && booksReturned.map(book => <Book key={book.id} book={book}/>)}
+                    {
+                        booksReturned && booksReturned.length > 0 && 
+                        booksReturned.map(book => 
+                            <Book key={book.id} book={book} onShelfChange={refreshBooks} />
+                        )
+                    }
                 </div>
             </div>
             
