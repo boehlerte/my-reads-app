@@ -1,4 +1,4 @@
-My Reads App - developed in React.js
+## My Reads App - developed in React.js
 
 -search for books to add to your bookshelf
 -add/remove books from a specific shelf (currently reading, want to read, read, none)
