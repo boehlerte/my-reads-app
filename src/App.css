@@ -77,13 +77,23 @@
 }
 
 .search-bar {
-  padding-bottom: 1em;
   border-bottom: 1px solid grey;
+  padding: 1em 0;
+}
+
+.search-bar input {
+  border: none;
+  height: 2em;
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+
+.search-bar input:focus {
+  outline: none;
 }
 
 .back-arrow {
-  margin: 1em 0 0 1em;
-  height: 2.5em;
+  vertical-align: middle;
   width: 2.5em;
 }
 
