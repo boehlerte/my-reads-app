@@ -9,7 +9,7 @@ import { debounce } from 'throttle-debounce';
 export default class SearchPage extends Component {
     constructor(props) {
         super(props);
-        this.searchQueryDebounced = debounce(300, this.searchQuery);
+        this.searchQueryDebounced = debounce(500, this.searchQuery);
     }
     
     static propTypes = {
