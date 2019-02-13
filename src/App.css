@@ -1,34 +1,60 @@
 .my-reads-header {
-  text-align: center;
-  font-size: 1.5em;
-  border-bottom: 1px solid grey;
+  text-align: left;
+  font-size: 2em;
+  font-weight: 300;
+  width: 100%;
+  letter-spacing: 2px;
+  background-color: #1c749c;
+  color: white;
+  padding: 1em;
+  position: fixed;
+  z-index: 100;
+  display: inline-block;
+  box-shadow: 0px 2px 4px rgb(151, 150, 150);
+}
+
+.my-reads-body {
+  margin-top: 7.5em;
+  width: 100%;
+  display: inline-block;
 }
 
 .bookshelf {
   text-align: center;
-  border-bottom: 1px solid grey;
+  background-color:	#eeeeee;
+  width: 95%;
+  margin: 0 auto 1em;
+  border-radius: .3em;
+  overflow: hidden;
+}
+
+.bookshelf-header {
+  padding: 1em;
+  color: white;
+  font-weight: 300;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  background-color: #909ba1;
 }
 
 .book-container {
-  display: inline-block;
-  margin: 1em;
+  display: inline-grid;
+  margin: 2em 1em;
 }
 
 .book {
-  margin: 1em;
   position: relative;
 }
 
 .book-status-dropdown {
   position: absolute;
   bottom: -5%;
-  right: -5%;
+  right: -15%;
   background-image: url('./icons/arrow-drop-down.svg');
 }
 
 .book-status-dropdown select {
   padding: 5px 8px;
-  width: 130%;
   height: inherit;
   width: inherit;
   border: none;
@@ -49,21 +75,26 @@
 .add-book-icon {
   background-image: url('./icons/add.svg');
   position: fixed;
-  right: 5%;
-  bottom: 5%;
+  right: 2em;
+  top: 2em;
+  z-index: 500;
+  box-shadow: none !important;
+  background-color: rgb(111, 184, 233) !important;
+  border: 2px solid white;
 }
 
 .circle-icon {
   height: 2.5em;
   width: 2.5em;
-  background-color: green;
+  background-color: #1e8abd;
   border-radius: 100%;
+  box-shadow: 4px 4px 4px rgb(151, 150, 150);
 }
 
 .book-info {
-  max-width: 7.5em;
+  padding-top: 1em;
+  max-width: 8em;
   text-align: left;
-  margin: 0 auto;
 }
 
 .book-title {
@@ -77,8 +108,13 @@
 }
 
 .search-bar {
-  border-bottom: 1px solid grey;
+  box-shadow: 0 4px 4px rgb(151, 150, 150);
   padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  top: 6em;
+  z-index: 100;
+  background-color: white;
 }
 
 .search-bar input {
@@ -95,6 +131,7 @@
 .back-arrow {
   vertical-align: middle;
   width: 2.5em;
+  margin-left: 1em;
 }
 
 .missing-thumbnail {
@@ -103,4 +140,9 @@
   border: 1px solid grey;
   text-align: center;
   padding: 4em 2em;
+}
+
+.search-results {
+  text-align: center;
+  margin: 6em 2em 1em;
 }

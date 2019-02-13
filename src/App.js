@@ -32,34 +32,35 @@ class App extends Component {
 
     return (
       <div className='my-reads'>
-        <header className='my-reads-header'>
-          <h2>My Reads</h2>
-        </header>
+        <div className='my-reads-header'>
+          <span>My Reads</span>
+        </div>
         <div className='my-reads-body'>
           <Route exact path='/' render={() => (
             <div className='bookcase'>
               <div className='bookshelf bookshelf--currently-reading'>
-                <h4>Currently Reading</h4>
+                <div className='bookshelf-header'>Currently Reading</div>
                 <BookShelf books={currentlyReading} refreshBooks={this.refreshBooks}/>
               </div>
               <div className='bookshelf bookshelf--want-to-read'>
-                <h4>Want To Read</h4>
+                <div className='bookshelf-header'>Want To Read</div>
                 <BookShelf books={wantToRead} refreshBooks={this.refreshBooks}/>
               </div>
               <div className='bookshelf bookshelf--read'>
-                <h4>Read</h4>
+                <div className='bookshelf-header'>Read</div>
                 <BookShelf books={read} refreshBooks={this.refreshBooks}/>
               </div>
-              <Link 
-                to='/search'
-                className='add-book-icon circle-icon'
-              ></Link>
             </div>
           )} />
 
           <Route path='/search' render={() => (
             <SearchPage shelvedBooks={books} refreshBooks={this.refreshBooks}/>
           )} />
+
+          <Link 
+            to='/search'
+            className='add-book-icon circle-icon'
+          ></Link>
         </div>
       </div>
     );
