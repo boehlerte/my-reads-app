@@ -9,11 +9,14 @@ export default class BookShelf extends Component {
     }
 
     render() {
-        const { books, refreshBooks } = this.props;
+        const { shelf, title, books, refreshBooks } = this.props;
         return (
-            <div>
-                <div className='bookshelf-container'>
-                    {books.map(book => (
+            <div className='bookshelf'>
+                <div className='bookshelf-header'>
+                    {title}
+                </div>
+                <div className='bookshelf-books'>
+                    {books.filter(book => book.shelf === shelf).map(book => (
                         <Book key={book.id} book={book} onShelfChange={refreshBooks}/>
                     ))}
                 </div>
